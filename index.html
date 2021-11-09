@@ -1,0 +1,1021 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" typ="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Mummi Samler
+    </title>
+</head>
+<body id="body">
+    <div id="navbar_container">
+        <h1 id="nav_title">Mummikopp Samling</h1>
+        <ul id="navbar_ul">
+        <li><a href="index.php">Hjem</a></li>
+        <li><a id="text_space_header" href="#">Mummi</a></li>
+        <li><a href="logout.php">Logg ut</a></li>
+        </ul>
+    </div>
+
+    <p style="font-size: 20px; text-align:center; margin-top:20px; margin-bottom:10px;">klikk for</p>
+
+    <div class="icons_meaning">
+        <i class="fas fa-home fa-3x icon_item1"></i>
+        <i class="fas fa-grin-hearts fa-3x icon_item2"></i>
+        <i class="fas fa-heart-broken fa-3x icon_item3"></i>
+    </div>
+
+    <div class="text_under_topicons">
+        <p class="texticon_item1">Har</p>
+        <p class="texticon_item2">Vil ha</p>
+        <p class="texticon_item3">Har ikke</p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
+  
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
+  
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+    </div>
+
+    <div id="main_container" class="main_container">
+        <div class="image1">
+            <img alt="På Fjellet - 2021" src="img/in_the_mountains_2021.png" height="200px" width="200px">
+            <p>På Fjellet - 2021</p>
+            <div id="icon_colors" class="center_icon_text">
+            <i id="test1" data-type="me" data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+            <i data-type="you" data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+            <i data-type="other" data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>  
+        </div>
+        <div class="image2">
+            <img alt="Mummidagen - 2021" src="img/moominsday_2021.png" height="200px" width="200px">
+            <p>Mummidagen - 2021</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>  
+        </div>
+        <div class="image3">
+            <img alt="Filifjonka - 2021" src="img/fillifjonka_2021.png" height="200px" width="200px">
+            <p>Filifjonka - 2021</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>  
+        </div>
+        <div class="image4">
+            <img alt="Sammen - 2021" src="img/together_2021.png" height="200px" width="200px">
+            <p>Sammen - 2021</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image5">
+            <img alt="Mummimamma Marmelade - 2021" src="img/moominmamma_marmelade_2021.png" height="200px" width="200px">
+            <p>Mummimamma Marmelade - 2021</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image6">
+            <img alt="Snøstorm- 2020" src="img/snowstorm_2021.png" height="200px" width="200px">
+            <p>Snøstorm- 2020</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image7">
+            <img alt="Mummimamma Lengter Hjem - 2020" src="img/Moominmammas_mural_2020.png" height="200px" width="200px">
+            <p>Mummimamma Lengter Hjem - 2020</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image8">
+            <img alt="Snusmumrikken og Ildånden - 2020" src="img/the_fire_spirit_2020.png" height="200px" width="200px">
+            <p>Snusmumrikken og Ildånden - 2020</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image9">
+            <img alt="Hvilestund - 2020" src="img/relaxing_2020.png" height="200px" width="200px">
+            <p>Hvilestund - 2020</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image10">
+            <img alt="Misan - 2020" src="img/misabel_yellow_2020.png" height="200px" width="200px">
+            <p>Misan - 2020</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image11">
+            <img alt="Snorkfrøken Lilla - 2020" src="img/Snorkmaiden_lila_2020.png" height="200px" width="200px">
+            <p>Snorkfrøken Lilla - 2020</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image12">
+            <img alt="Tung Snø - 2019" src="img/Crown_snow_load_2019.png" height="200px" width="200px">
+            <p>Tung Snø - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image13">
+            <img alt="Sov Godt - 2019" src="img/sleep_well_2019.png" height="200px" width="200px">
+            <p>Sov Godt - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image14">
+            <img alt="Trollvinter - 2019" src="img/midwinter_2019.png" height="200px" width="200px">
+            <p>Trollvinter - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image15">
+            <img alt="Den Gyldne Hale - 2019" src="img/golden_tale_2019.png" height="200px" width="200px">
+            <p>Den Gyldne Hale - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image16">
+            <img alt="Hufsas Natt - 2019" src="img/night_of_the_groke_2019.png" height="200px" width="200px">
+            <p>Hufsas Natt - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image17">
+            <img alt="Den Siste Drage - 2019" src="img/the_last_dragon_2019.png" height="200px" width="200px">
+            <p>Den Siste Drage - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image18">
+            <img alt="Kveldsbad - 2019" src="img/evening_swim_2019.png" height="200px" width="200px">
+            <p>Kveldsbad - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image19">
+            <img alt="Mummidalparken Japan - 2019" src="img/moominvalley_park_japan_2019.png" height="200px" width="200px">
+            <p>Mummidalparken Japan - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image20">
+            <img alt="Ninni Det Usynlige Barnet - 2019" src="img/ninny_powder_2019.png" height="200px" width="200px">
+            <p>Ninni Det Usynlige Barnet - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image21">
+            <img alt="Mummitrollet og Marsboerne - 2019" src="img/moomintroll_grassgreen_2019.png" height="200px" width="200px">
+            <p>Mummitrollet og Marsboerne - 2019</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image22">
+            <img alt="Lett Snøfall - 2018" src="img/light_snowfall_2018.png" height="200px" width="200px">
+            <p>Lett Snøfall - 2018</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image23">
+            <img alt="Mummidagen - 2018" src="img/moomins_day_2018.png" height="200px" width="200px">
+            <p>Mummidagen - 2018</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image24">
+            <img alt="Vennskap - 2018" src="img/friendship_2018.png" height="200px" width="200px">
+            <p>Vennskap - 2018</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image25">
+            <img alt="Vi Drar på Ferie - 2018" src="img/going_on_vecation_2018.png" height="200px" width="200px">
+            <p>Vi Drar på Ferie - 2018</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image26">
+            <img alt="Trollmannen - 2018" src="img/hobgoblin_purple_2018.png" height="200px" width="200px">
+            <p>Trollmannen - 2018</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image27">
+            <img alt="Tufsla og Vifsla - 2018" src="img/thingumy_and_bob_green_2018.png" height="200px" width="200px">
+            <p>Tufsla og Vifsla - 2018</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image28">
+            <img alt="Vårlig Vinter - 2017" src="img/spring_winter_2017.png" height="200px" width="200px">
+            <p>Vårlig Vinter - 2017</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image29">
+            <img alt="Tro Mot Opprinnelsen - 2017" src="img/true_to_its_origins_2017.png" height="200px" width="200px">
+            <p>Tro Mot Opprinnelsen - 2017</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image30">
+            <img alt="Sommerteater - 2017" src="img/summer_theatre_2017.png" height="200px" width="200px">
+            <p>Sommerteater - 2017</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image31">
+            <img alt="Mummidalen - 2017" src="img/moominvalley_2017.png" height="200px" width="200px">
+            <p>Mummidalen - 2017</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image32">
+            <img alt="Snøhesten - 2016" src="img/snow_horse_2016.png" height="200px" width="200px">
+            <p>Snøhesten - 2016</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image33">
+            <img alt="Midtsommer - 2016" src="img/midsummer_2016.png" height="200px" width="200px">
+            <p>Midtsommer - 2016</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image34">
+            <img alt="Stamfaren - 2016" src="img/ancestor_black_2016.png" height="200px" width="200px">
+            <p>Stamfaren - 2016</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image35">
+            <img alt="Too-Tikki - 2016" src="img/tooticky_voilet_2016.png" height="200px" width="200px">
+            <p>Too-Tikki - 2016</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image36">
+            <img alt="Vår Kyst - 2016" src="img/our_coast_2016.png" height="200px" width="200px">
+            <p>Vår Kyst - 2016</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image37">
+            <img alt="Vinterdvale - 2015" src="img/hibernation_2015.png" height="200px" width="200px">
+            <p>Vinterdvale - 2015</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image38">
+            <img alt="Hold Vannet Rent - 2015" src="img/keep_waters_clean_2015.png" height="200px" width="200px">
+            <p>Hold Vannet Rent - 2015</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image39">
+            <img alt="Lille My - 2015" src="img/little_my_red_2015.png" height="200px" width="200px">
+            <p>Lille My - 2015</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image40">
+            <img alt="Øyeblikk på Stranden - 2015" src="img/moment_on_the_shore_2015.png" height="200px" width="200px">
+            <p>Øyeblikk på Stranden - 2015</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image41">
+            <img alt="Jubileumskopp 70 år - 2015" src="img/moominhouse_2015.png" height="200px" width="200px">
+            <p>Jubileumskopp 70 år - 2015</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image42">
+            <img alt="Snusmumrikken - 2015" src="img/snufkin_green_2015.png" height="200px" width="200px">
+            <p>Snusmumrikken - 2015</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image43">
+            <img alt="Skitur med Herr Brisk - 2014" src="img/skiing_with_mr.brisk_2014.png" height="200px" width="200px">
+            <p>Skitur med Herr Brisk - 2014</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image44">
+            <img alt="Mummimamma - 2014" src="img/moominmamma_2014.png" height="200px" width="200px">
+            <p>Mummimamma - 2014</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image45">
+            <img alt="Tove Jansson 100 år Jubileumskopp - 2014" src="img/toves_jubileum_2014.png" height="200px" width="200px">
+            <p>Tove Jansson 100 år Jubileumskopp - 2014</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image46">
+            <img alt="Seiltur - 2014" src="img/sailing_with_nibling_and_tooticky_2014.png" height="200px" width="200px">
+            <p>Seiltur - 2014</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image47">
+            <img alt="Mummipappa - 2014" src="img/moominpappa_dark_blue_2014.png" height="200px" width="200px">
+            <p>Mummipappa - 2014</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image48">
+            <img alt="Under Juletreet - 2013" src="img/under_the_tree_2013.png" height="200px" width="200px">
+            <p>Under Juletreet - 2013</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image49">
+            <img alt="Eventyr Flytter - 2013" src="img/adventure_move_2013.png" height="200px" width="200px">
+            <p>Eventyr Flytter - 2013</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image50">
+            <img alt="Mummitrollet - 2013" src="img/moomintroll_turqoise_2013.png" height="200px" width="200px">
+            <p>Mummitrollet - 2013</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image51">
+            <img alt="Snorkfrøken - 2013" src="img/snorkmaiden_ping_2013.png" height="200px" width="200px">
+            <p>Snorkfrøken - 2013</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image52">
+            <img alt="Snorkfrøken og Poeten - 2013" src="img/snormaiden_and_poet_2013.png" height="200px" width="200px">
+            <p>Snorkfrøken og Poeten - 2013</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image53">
+            <img alt="Vinterskog - 2012" src="img/winter_forest_2012.png" height="200px" width="200px">
+            <p>Vinterskog - 2012</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image54">
+            <img alt="Stockmann 150 Spesial kopp - 2012" src="img/stockmann_150_special_mug_2012.png" height="200px" width="200px">
+            <p>Stockmann 150 Spesial kopp - 2012</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image55">
+            <img alt="Hurra! - 2012" src="img/hurray_2012.png" height="200px" width="200px">
+            <p>Hurra! - 2012</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image56">
+            <img alt="Primadonnas Hest - 2012" src="img/primadonnas_horse_2012.png" height="200px" width="200px">
+            <p>Primadonnas Hest - 2012</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image57">
+            <img alt="Mymlens Mamma - 2012" src="img/mymbles_mother_2012.png" height="200px" width="200px">
+            <p>Mymlens Mamma - 2012</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image58">
+            <img alt="Vinterleker - 2011" src="img/winter_games_2011.png" height="200px" width="200px">
+            <p>Vinterleker - 2011</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image59">
+            <img alt="Såpebobler - 2011" src="img/soap_bubbles_2011.png" height="200px" width="200px">
+            <p>Såpebobler - 2011</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image60">
+            <img alt="Fuzzy - 2011" src="img/fuzzy_2011.png" height="200px" width="200px">
+            <p>Fuzzy - 2011</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image61">
+            <img alt="Skikonkurranse - 2010" src="img/skiing_competition_2010.png" height="200px" width="200px">
+            <p>Skikonkurranse - 2010</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image62">
+            <img alt="Rosehage - 2010" src="img/rose_garden_2010.png" height="200px" width="200px">
+            <p>Rosehage - 2010</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image63">
+            <img alt="Fjomsedyret - 2010" src="img/muddler_2010.png" height="200px" width="200px">
+            <p>Fjomsedyret - 2010</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image64">
+            <img alt="Kveldsseiling - 2010" src="img/night_sailing_2010.png" height="200px" width="200px">
+            <p>Kveldsseiling - 2010</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image65">
+            <img alt="Juleoverraskelse - 2009" src="img/chirstmas_surprise_2009.png" height="200px" width="200px">
+            <p>Juleoverraskelse - 2009</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image66">
+            <img alt="Eventyr - 2009" src="img/adventure_2009.png" height="200px" width="200px">
+            <p>Eventyr - 2009</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image67">
+            <img alt="Politimesteren - 2009" src="img/inspector_2009.png" height="200px" width="200px">
+            <p>Politimesteren - 2009</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image68">
+            <img alt="Siesta - 2009" src="img/siesta_2009.png" height="200px" width="200px">
+            <p>Siesta - 2009</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image69">
+            <img alt="Vinter Leirbål - 2008" src="img/winter_bonfire_2008.png" height="200px" width="200px">
+            <p>Vinter Leirbål - 2008</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image70">
+            <img alt="Mymlen - 2008" src="img/mymble_2008.png" height="200px" width="200px">
+            <p>Mymlen - 2008</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image71">
+            <img alt="Lille My - 2008" src="img/little_my_2008.png" height="200px" width="200px">
+            <p>Lille My - 2008</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image72">
+            <img alt="På Stranden - 2008" src="img/on_the_beach_2008.png" height="200px" width="200px">
+            <p>På Stranden - 2008</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image73">
+            <img alt="Sniff Turkis - 2008" src="img/sniff_turquoise_2008.png" height="200px" width="200px">
+            <p>Sniff Turkis - 2008</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image74">
+            <img alt="Snøball lykt - 2007" src="img/snow_lantern_2007.png" height="200px" width="200px">
+            <p>Snøball lykt - 2007</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image75">
+            <img alt="Delfindykk - 2007" src="img/dolphin_dive_2007.png" height="200px" width="200px">
+            <p>Delfindykk - 2007</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image76">
+            <img alt="Hattifnattene - 2007" src="img/hattifatteners_2007.png" height="200px" width="200px">
+            <p>Hattifnattene - 2007</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image77">
+            <img alt="Vinternatt - 2006" src="img/winternight_2006.png" height="200px" width="200px">
+            <p>Vinternatt - 2006</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image78">
+            <img alt="Dykking - 2006" src="img/dive_2006.png" height="200px" width="200px">
+            <p>Dykking - 2006</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image79">
+            <img alt="Too-Tikki - 2006" src="img/tooticky_2006.png" height="200px" width="200px">
+            <p>Too-Tikki - 2006</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image80">
+            <img alt="Tufsla og Vifsla - 2005" src="img/thingumy_and_bob_2005.png" height="200px" width="200px">
+            <p>Tufsla og Vifsla - 2005</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image81">
+            <img alt="Hufsa - 2005" src="img/groke_2005.png" height="200px" width="200px">
+            <p>Hufsa - 2005</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image82">
+            <img alt="Mummitrollet Dagdrømmer - 2005" src="img/moomintroll_daydreaming_2005.png" height="200px" width="200px">
+            <p>Mummitrollet Dagdrømmer - 2005</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image83">
+            <img alt="Hemulen - 2004" src="img/hemulen_2004.png" height="200px" width="200px">
+            <p>Hemulen - 2004</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image84">
+            <img alt="Filifjonka - 2004" src="img/fillyfjonk_2004.png" height="200px" width="200px">
+            <p>Filifjonka - 2004</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image85">
+            <img alt="Fazer Spesialkrus - 2004" src="img/fazer_2004.png" height="200px" width="200px">
+            <p>Fazer Spesialkrus - 2004</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image86">
+            <img alt="Julekrus - 2004-2005" src="img/christmas_mug_2004.png" height="200px" width="200px">
+            <p>Julekrus - 2004-2005</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image87">
+            <img alt="Sniff - 2002" src="img/sniff_2002.png" height="200px" width="200px">
+            <p>Sniff - 2002</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image88">
+            <img alt="Snusmumrikken - 2002" src="img/snufkin_2002.png" height="200px" width="200px">
+            <p>Snusmumrikken - 2002</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image89">
+            <img alt="Snorkfrøken - 2001" src="img/snorkmaiden_2001.png" height="200px" width="200px">
+            <p>Snorkfrøken - 2001</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image90">
+            <img alt="Stinky - 2001" src="img/stinky_2001.png" height="200px" width="200px">
+            <p>Stinky - 2001</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image91">
+            <img alt="Millennium - 1999" src="img/millennium_1999.png" height="200px" width="200px">
+            <p>Millennium - 1999</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image92">
+            <img alt="Lille My Aker - 1999" src="img/little_my_sliding_1999.png" height="200px" width="200px">
+            <p>Lille My Aker - 1999</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image93">
+            <img alt="Mummitrollet på Isen - 1999" src="img/moomintroll_on_ice_1999.png" height="200px" width="200px">
+            <p>Mummitrollet på Isen - 1999</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image94">
+            <img alt="Mummimamma og Bær - 1999" src="img/moominmamma_and_berries_1999.png" height="200px" width="200px">
+            <p>Mummimamma og Bær - 1999</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image95">
+            <img alt="Mummipappa i Dype Tanker - 1999" src="img/moominpappa_thinking_1999.png" height="200px" width="200px">
+            <p>Mummipappa i Dype Tanker - 1999</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image96">
+            <img alt="Julehilsen - 1997" src="img/christmas_greeting_1997.png" height="200px" width="200px">
+            <p>Julehilsen - 1997</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image97">
+            <img alt="Kjærlighet - 1996" src="img/love_1996.png" height="200px" width="200px">
+            <p>Kjærlighet - 1996</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image98">
+            <img alt="Fred - 1996" src="img/peace_1996.png" height="200px" width="200px">
+            <p>Fred - 1996</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image99">
+            <img alt="Tegner - 1996" src="img/drawing_1996.png" height="200px" width="200px">
+            <p>Tegner - 1996</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image100">
+            <img alt="Mørk Gul - 1991" src="img/dark_yellow_1991.png" height="200px" width="200px">
+            <p>Mørk Gul - 1991</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image101">
+            <img alt="Mørk Blå - 1991" src="img/dark_blue_1991.png" height="200px" width="200px">
+            <p>Mørk Blå - 1991</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image102">
+            <img alt="Mørk Rose - 1991" src="img/dark_rose_1991.png" height="200px" width="200px">
+            <p>Mørk Rose - 1991</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image103">
+            <img alt="Mummikopp Gul - 1990" src="img/mug_yellow_1990.png" height="200px" width="200px">
+            <p>Mummikopp Gul - 1990 &nbsp;</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image104">
+            <img alt="Mummikopp Blå - 1990" src="img/mug_blue_1990.png" height="200px" width="200px">
+            <p>Mummikopp Blå - 1990</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image105">
+            <img alt="Mummikopp Rose - 1990" src="img/mug_rose_1990.png" height="200px" width="200px">
+            <p>Mummikopp Rose - 1990</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        <div class="image106">
+            <img alt="Mummikopp Grønn - 1990" src="img/mug_green_1990.png" height="200px" width="200px">
+            <p>Mummikopp Grønn - 1990</p>
+            <div class="center_icon_text">
+                <i data-active-color="green" data-disabled-color="#6080a0" class="fas fa-home fa-3x active-color-aware"></i>
+                <i data-active-color="yellow" data-disabled-color="#6080a0" class="fas fa-grin-hearts fa-3x active-color-aware"></i>
+                <i data-active-color="red" data-disabled-color="#6080a0" class="fas fa-heart-broken fa-3x active-color-aware"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" typ="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <title>registrer
+    </title>
+</head>
+<body>
+    <div id="error"></div>
+    <form id="form_register" action="" method="post">
+        <div>
+            <p id="login_text">Registrer</p>
+            <input type="text" name="signup_full_name" id="register_name" placeholder="Navn" required>
+        </div><br>
+        <div>
+        <input type="email" name="signup_email" id="register_email" placeholder="Epost" required>
+        </div><br>
+        <div>
+            <input type="password" name="signup_password" id="register_password" placeholder="Passord" required>
+        </div><br>  
+        <div>
+            <input type="password" name="signup_cpassword" id="register_password" placeholder="Passord igjen"  required>
+        </div><br>  
+        <a href="login.html" id="new_user_text">Har allerede bruker</a><br>
+        <button type="submit" name="submit" id="login_button">Register</button><br>
+        <img id="moomin_img" src="img/mummi.png">
+    </form>
+</body>
+</html>

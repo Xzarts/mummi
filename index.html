@@ -1,12 +1,3 @@
-<?php
-
-session_start();
-
-if (!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +16,9 @@ if (!isset($_SESSION["user_id"])) {
     <div id="navbar_container">
         <h1 id="nav_title">Mummikopp Samling</h1>
         <ul id="navbar_ul">
-        <li><a href="index.php">Hjem</a></li>
-        <li><a id="text_space_header" href="#">Mummi</a></li>
-        <li><a href="logout.php">Logg ut</a></li>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a id="text_space_header" href="https://no.wikipedia.org/wiki/Mummitrollet">Mummi</a></li>
+        <li><a href="login.html">Logg ut</a></li>
         </ul>
     </div>
 

@@ -6,13 +6,7 @@ function oppdater() {
         this.style.color = 
           this.style.color != this.dataset.activeColor ?
           this.dataset.activeColor :
-          this.dataset.disabledColor;
-          const aColor = this.dataset.activeColor;
-          localStorage.setItem('saveColor', aColor);
-          localStorage.getItem('saveColor');
-          const colorValue = localStorage.getItem('saveColor');
-          console.log(colorValue);
-         
+          this.dataset.disabledColor;       
       };
 
     
@@ -52,3 +46,36 @@ closeSpan.onclick = function() {
 }
 
 }
+
+const currentState = JSON.parse(localStorage.getItem("selectionState") || '{}');
+
+const getKeyType = el => {
+  return [el.parentNode.id, el.dataset.type];
+}
+
+const populateState = el => {
+  [key, type] = getKeyType(el);
+
+  el.style.color = currentState[key][type] ? el.dataset.activeColor : el.dataset.disabledColor;  
+};
+
+const clickity = function () {
+  [key, type] = getKeyType(this);
+  
+  if (!currentState.hasOwnProperty(key)) {
+    currentState[key] = {type: false};
+  }
+  
+  currentState[key][type] = !currentState[key][type];
+  populateState(this);
+  
+  localStorage.setItem("selectionState", JSON.stringify(currentState));
+}
+
+const buttons = document.querySelectorAll("i");
+
+for (const button of buttons) {
+  populateState(button);
+  button.addEventListener('click', clickity);
+}
+

@@ -5,8 +5,8 @@ function oppdater() {
    const clickHandler = function () {
         this.style.color = 
           this.style.color != this.dataset.activeColor ?
-          this.dataset.activeColor :
-          this.dataset.disabledColor;       
+          this.dataset.disabledColor :
+          this.dataset.activeColor;       
       };
 
     

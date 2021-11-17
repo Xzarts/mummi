@@ -47,17 +47,21 @@ closeSpan.onclick = function() {
 
 }
 
+
 const currentState = JSON.parse(localStorage.getItem("selectionState") || '{}');
+
 
 const getKeyType = el => {
   return [el.parentNode.id, el.dataset.type];
+  
 }
 
 const populateState = el => {
   [key, type] = getKeyType(el);
 
-  el.style.color = currentState[key][type] ? el.dataset.activeColor : el.dataset.disabledColor;  
+  el.style.color = currentState[key][type] ? el.dataset.activeColor : el.dataset.disabledColor;
 };
+
 
 const clickity = function () {
   [key, type] = getKeyType(this);
@@ -72,10 +76,16 @@ const clickity = function () {
   localStorage.setItem("selectionState", JSON.stringify(currentState));
 }
 
+const startCode = document.querySelectorAll("i");
+
+for (const startCod of startCode) {
+  startCod.addEventListener('click', clickity);
+}
+
 const buttons = document.querySelectorAll("i");
 
 for (const button of buttons) {
   populateState(button);
   button.addEventListener('click', clickity);
+  
 }
-

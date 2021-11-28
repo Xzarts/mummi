@@ -1,5 +1,6 @@
 window.onload = oppdater;
 
+//change color of icon under pictures
 function oppdater() {
 
    const clickHandler = function () {
@@ -36,7 +37,7 @@ for (const allImg of document.querySelectorAll(".main_container img")) {
 var span = document.getElementsByClassName("close")[0];
 var closeSpan = document.getElementById("myModal");
 
-// When the user clicks on <span> (x), close the modal
+// When the user clicks on (x), close the modal
 span.onclick = function() { 
   modal.style.display = "none";
    
@@ -47,6 +48,8 @@ closeSpan.onclick = function() {
 
 }
 
+
+//saves icon colors to localStorage
 
 const currentState = JSON.parse(localStorage.getItem("selectionState") || '{}');
 

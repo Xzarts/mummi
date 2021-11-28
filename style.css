@@ -301,6 +301,7 @@ body {
 
 #main_container {
     margin-top: 100px;
+    margin-bottom: 100px;
     width: 80%;
     height: auto;
     margin-left: auto;
@@ -457,3 +458,43 @@ body {
         width: 1200px;
 }
 }
+
+/* home */
+
+.home {
+    margin: auto;
+    margin-top: 220px;
+    margin-bottom: 100px;
+    height: 1050px;
+    width: 80%;
+    background-color: #ADEFD1FF;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 1200px;
+}
+
+.home_h1 {
+    padding-top: 60px;
+}
+
+.home_txt {
+    font-size: large;
+}
+
+.home_moomin_img {
+    padding-top: 100px;
+}
+
+.home_mail:link {
+    text-decoration: none;
+    color:rgb(183, 59, 194);
+    transition: transform .2s;
+}
+
+.home_mail:hover {
+    color: rgb(0, 81, 134);
+    text-decoration: underline;
+    
+}
+

@@ -314,10 +314,10 @@ body {
     justify-items: center;
     grid-gap: 10px;
     grid-template-areas: 
-    "image1 image2"
-    "image3 image4"
-    "image5 image6"
-    "image7 image8"
+    "image107 image1"
+    "image2 image3"
+    "image4 image5"
+    "image6 image7"
     ;
     text-align: center;
 }
@@ -395,38 +395,38 @@ body {
 
 /* grid template areas */
 
-.image1 {
+.image107 {
     grid-area: image1;
 }
 .center_icon_text {
     margin-right: 35px;
 }
 
-.image2 {
+.image1 {
     grid-area: image2;
 }
 
-.image3 {
+.image2 {
     grid-area: image3;
 }
 
-.image4 {
+.image3 {
     grid-area: image4;
 }
 
-.image5 {
+.image4 {
     grid-area: image5;
 }
 
-.image6 {
+.image5 {
     grid-area: image6;
 }
 
-.image7 {
+.image6 {
     grid-area: image7;
 }
 
-.image8 {
+.image7 {
     grid-area: image8;
 }
 /* @Media */

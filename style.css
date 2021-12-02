@@ -318,6 +318,7 @@ body {
     "image2 image3"
     "image4 image5"
     "image6 image7"
+    "image8 ."
     ;
     text-align: center;
 }
@@ -396,37 +397,41 @@ body {
 /* grid template areas */
 
 .image107 {
-    grid-area: image1;
+    grid-area: image107;
 }
 .center_icon_text {
     margin-right: 35px;
 }
 
 .image1 {
-    grid-area: image2;
+    grid-area: image1;
 }
 
 .image2 {
-    grid-area: image3;
+    grid-area: image2;
 }
 
 .image3 {
-    grid-area: image4;
+    grid-area: image3;
 }
 
 .image4 {
-    grid-area: image5;
+    grid-area: image4;
 }
 
 .image5 {
-    grid-area: image6;
+    grid-area: image5;
 }
 
 .image6 {
-    grid-area: image7;
+    grid-area: image6;
 }
 
 .image7 {
+    grid-area: image7;
+}
+
+.image8 {
     grid-area: image8;
 }
 /* @Media */
@@ -435,6 +440,7 @@ body {
     #main_container {
         grid-template-columns: 1fr;
         grid-template-areas: 
+        "image107"
         "image1"
         "image2"
         "image3"
@@ -447,13 +453,14 @@ body {
     }
 }
 
+
 @media only screen and (min-width: 1200px) {
     #main_container {
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas: 
-        "image1 image2 image3"
-        "image4 image5 image6"
-        "image7 image8 ."
+        "image107 image1 image2"
+        "image3 image4 image5"
+        "image6 image7 image8 "
         ;
         width: 1200px;
 }
@@ -479,7 +486,17 @@ body {
 }
 
 .home_txt {
-    font-size: large;
+    font-size: 16px;
+    line-height: 26px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;   
+}
+
+@media screen and (min-width: 600px){ 
+    .home_txt {font-size: 18px;
+    line-height: 30px;
+  }
 }
 
 .home_moomin_img {
@@ -497,4 +514,17 @@ body {
     text-decoration: underline;
     
 }
+
+@media only screen and (max-width: 1015px) {
+    .home {
+        width: 90%;
+    }}
+
+@media only screen and (max-width: 828px) {
+    .home {
+        width: 98%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }}
+
 
